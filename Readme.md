@@ -1,1 +1,1 @@
-Hi This is MasterSeeker and this is my django Blog Exercise
+Hi This is MasterSeeker and this is my django Blog Exercises 
