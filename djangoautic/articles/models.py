@@ -15,7 +15,8 @@ class Article(models.Model):  # Different Field Types go to django Documentation
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    # add in thumbnail later
+    thumb = models.ImageField(default='default.png', blank=True) # default pic and field can be empty
+    
     # add in author later
 
     def __str__(self):
@@ -24,3 +25,4 @@ class Article(models.Model):  # Different Field Types go to django Documentation
     def snippet(self):
         return self.body[:50] + " ..."
 
+    
