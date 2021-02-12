@@ -17,7 +17,7 @@ from django import urls
 from django.contrib import admin
 from django.urls import path, include
 from . import views 
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns # allows us to add static files to url patters
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +25,7 @@ urlpatterns = [
     path('about/', views.about),
     path('', views.homepage),
 ]
+
+urlpatterns += staticfiles_urlpatterns() # Need to be in Debug mode for this to work
+ 
+
