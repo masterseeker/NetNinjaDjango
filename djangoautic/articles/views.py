@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import Article
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -15,5 +16,9 @@ def article_detail(request, slug):
     article = Article.objects.get(slug=slug) # finds article with matching slug
     return render(request, 'articles/article_detail.html', {'article':article})
 
-    
+
+
+@login_required(login_url="/accounts/login/")   # decorator protects this view  must be login in to acces this page
+def article_create(request):
+    return render(request, 'articles/article_create.html')
 
