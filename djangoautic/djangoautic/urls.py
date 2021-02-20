@@ -20,6 +20,7 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns # allows us to add static files to url patters
 from django.conf.urls.static import static
 from django.conf import settings
+from articles import views as article_views  # so views are not confused
 
 
 urlpatterns = [
@@ -27,7 +28,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
     path('about/', views.about),
-    path('', views.homepage),
+    path('', article_views.article_list, name="home"),
 ]
 
 urlpatterns += staticfiles_urlpatterns() # Need to be in Debug mode for this to work
